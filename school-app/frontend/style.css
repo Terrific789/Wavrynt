@@ -1,0 +1,4 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif; background: #101522; color: #f8fafc; }
+.app { width: min(90vw, 540px); padding: 3rem; border: 1px solid #324055; border-radius: 18px; }
+button { padding: .75rem 1rem; background: #80bcff; color: #101522; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }

@@ -3,6 +3,8 @@ node_modules/
 .wavrynt/
 dist/
 build/
+!packages/cli/src/build/
+!packages/cli/src/build/*.js
 .gradle/
 .local.properties
 .DS_Store

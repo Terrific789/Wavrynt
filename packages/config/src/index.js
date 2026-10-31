@@ -20,6 +20,14 @@ export function validateConfig(config) {
   if (typeof config.frontend?.entry !== 'string' || !config.frontend.entry.trim()) errors.push('frontend.entry must be a non-empty string.');
   if (config.backend?.type !== undefined && config.backend.type !== 'none' && config.backend.type !== 'http') errors.push('backend.type must be "none" or "http".');
   if (config.backend?.type === 'http' && (typeof config.backend.baseUrl !== 'string' || !/^https?:\/\//.test(config.backend.baseUrl))) errors.push('backend.baseUrl must start with http:// or https://.');
+  if (config.app?.version !== undefined && (typeof config.app.version !== 'string' || !config.app.version.trim())) errors.push('app.version must be a non-empty string.');
+  for (const field of ['name', 'version']) {
+    if (typeof config.app?.[field] === 'string' && /[\u0000-\u001f\u007f]/.test(config.app[field])) errors.push(`app.${field} cannot contain control characters.`);
+  }
+  if (config.platforms !== undefined && (!config.platforms || typeof config.platforms !== 'object' || Array.isArray(config.platforms))) errors.push('platforms must be an object.');
+  const android = config.platforms?.android;
+  if (android !== undefined && (!android || typeof android !== 'object' || Array.isArray(android))) errors.push('platforms.android must be an object.');
+  else if (android?.enabled !== undefined && typeof android.enabled !== 'boolean') errors.push('platforms.android.enabled must be a boolean.');
   return errors;
 }
 

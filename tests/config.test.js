@@ -26,3 +26,10 @@ test('http backend requires baseUrl', () => {
   });
   assert.ok(errors.some(error => error.includes('baseUrl')));
 });
+
+test('reject invalid Android platform settings and version', () => {
+  for (const platforms of [null, [], { android: null }, { android: [] }, { android: { enabled: 'yes' } }]) {
+    assert.ok(validateConfig({ app: { name: 'App', id: 'com.example.app', version: 12 },
+      frontend: { framework: 'vanilla', root: '.', entry: 'index.html' }, platforms }).some(e => e.includes('platforms')));
+  }
+});

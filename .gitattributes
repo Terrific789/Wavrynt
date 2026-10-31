@@ -1,0 +1,3 @@
+platforms/android/template/gradlew text eol=lf
+platforms/android/template/gradlew.bat text eol=crlf
+*.jar binary

@@ -1,0 +1,13 @@
+{
+  "name": "wavrynt-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "node --test",
+    "smoke": "node packages/cli/bin/wavrynt.js help",
+    "cli": "node packages/cli/bin/wavrynt.js"
+  },
+  "engines": {"node": ">=20"}
+}

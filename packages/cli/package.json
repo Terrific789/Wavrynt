@@ -1,0 +1,9 @@
+{
+  "name": "@wavrynt/cli",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "bin": {"wavrynt": "./bin/wavrynt.js"},
+  "engines": {"node": ">=20"},
+  "dependencies": {"@wavrynt/config": "0.0.1"}
+}
